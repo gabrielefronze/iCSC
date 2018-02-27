@@ -29,3 +29,9 @@
 
 \.vscode/settings\.json
 .DS_Store
+
+parallel
+
+parallel_for
+
+section
