@@ -15,7 +15,7 @@ int main(){
     int outputCounter = 0;
     bool done = false;
 
-#pragma omp parallel sections shared(outputCounter) num_threads(2)
+#pragma omp parallel sections shared(outputCounter,done) num_threads(2)
 {
     #pragma omp section
     {
