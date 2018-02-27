@@ -35,3 +35,11 @@ parallel
 parallel_for
 
 section
+
+omp_parallel_for_pi
+
+omp_parallel_pi
+
+sequential
+
+test_section
