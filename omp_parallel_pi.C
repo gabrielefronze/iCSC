@@ -19,36 +19,32 @@
 #include "StopWatch.h"
 #include <omp.h>
 #include <iostream>
-
-const long num_steps = 500000000; //number of x bins
+#include "common.h"
 
 int main()
 {
     StopWatch stopWatch;
 
-    double x, pi, sum = 0.0;
-    step = 1.0/(double) num_steps; //x-step
+    double pi, sum = 0.0;
+    double step = 1.0/(double) common::num_steps; //x-step
     int n_threads=1;
 
     #pragma omp parallel
     {
         n_threads = omp_get_num_threads();
         // Some changes have to be made: 
-        // at the moment each thread performs the same operations
-        // TIP: work on the for loop ranges
-        for (long i=1; i<=num_steps; i++) {
-            x = (i - 0.5) * step; //computing the x value
+        // at the moment each thread performs the same operations, computing pi n_threads times
+        // TIP: work on the for loop ranges using the thread IDs
+        for (long i=1; i<=common::num_steps; i++) {
+            double x = (i - 0.5) * step; //computing the x value
             sum += 4.0 / (1.0 + x * x); //adding to the cumulus
         }
     }
 
     pi = step * sum;
 
-    printf("Pi value: %f\n
-            Number of steps: %d\n
-            Number of threads: %d\n",
-            pi,num_steps,n_threads;
-    
+    common::print_results(pi,n_threads);
+
     return 0;
     
 }
