@@ -32,10 +32,12 @@ int main()
     #pragma omp parallel
     {
         n_threads = omp_get_num_threads();
+
         // Some changes have to be made: 
         // at the moment each thread performs the same operations, computing pi n_threads times
         // TIP: work on the for loop ranges using the thread IDs
-        for (long i=1; i<=common::num_steps; i++) {
+    
+        for (unsigned long long i=1; i<=common::num_steps; i++) {
             double x = (i - 0.5) * step; //computing the x value
             sum += 4.0 / (1.0 + x * x); //adding to the cumulus
         }

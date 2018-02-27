@@ -28,7 +28,7 @@ int main()
     double step = 1.0/(double) common::num_steps; //x-step
     int n_threads=1;
 
-    for (long i=1; i<=common::num_steps; i++) {
+    for (unsigned long long i=1; i<=common::num_steps; i++) {
         double x = (i - 0.5) * step; //computing the x value
         sum += 4.0 / (1.0 + x * x); //adding to the cumulus
     }
