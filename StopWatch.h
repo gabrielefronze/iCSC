@@ -1,5 +1,5 @@
 //---------------------------------------------------------------------
-// This simple class wraps around omp_get_wtime().
+// This simple class wraps around std::chrono::high_resolution_clock().
 // It uses a standard destructor to print data whenever out-of-scope.
 // use it by creating a StopWatch object in the scope you want to measure
 //
