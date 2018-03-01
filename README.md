@@ -28,3 +28,41 @@ This exercise requires the student to modify the skeleton to make use of the `fo
 
 6.`test_section.C`:
 This example represents the possibility to use one thread for asynchronous monitoring and the other threads for the real computing. This uses several OpenMP directives and is quite a complex and challenging code to read. Nevertheless it is a funny example to learn and can be used again and again alongside any OpenMP project to monitor the runtime status!
+
+#### Workflow
+Basically Git works as a non-automatic version of a cloud storage service that keeps track of the changes and allows one to revert some of them or to move forward and backward in time. This is called version control system (VCS) and is a widely used approach in complex code development.
+
+To make it easy you want to `push` the local edits to the remote repository and to `pull` new stuff from the remote repository. Once a repository is available on a machine you can step into it, do `git pull` to sync, modify whatever you want and then commit and `git push` everything to GitHub.
+
+For this exercises we'll use Git to share code between the coding machine (your laptop) and the computing machine (the remote VM).
+
+
+### Instructions
+First of all check out this basic and valid Git guide: [basic git guide](https://git-scm.com/docs/gittutorial)
+
+If you haven't done so yet register of GitHub with a free account and install git on your computer: [how to install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+At the top of [this page](https://github.com/gabrielefronze/iCSC) find the fork button and press it while being logged in to GitHub. Once done you will find a clone (technically a fork) of this repository on your GitHub page.
+
+####Using...
+
+##### ...your laptop
+Now you are ready to clone your forked repository locally on your machine to start working:
+
+```cd <your_path> && git clone https://github.com/<your_account_name>/iCSC.git```
+
+Start editing the files, modify the code. Once you got to a point where a feature has been fully implemented (e.g. you are done with an exercise) do:
+
+```git add -A && git commit -m "<your_commit_message> && git push"```
+
+##### ...your VM
+For the iCSC you can use  remote VM to test the parallel code on multiple CPUs.
+
+Connect to the machine using ssh.
+Clone locally the repository you have just forked, just as you did on your laptop:
+
+```cd <your_path> && git clone https://github.com/<your_account_name>/iCSC.git```
+
+Every time you commit new code from your laptop use the following command to sync the VM with the remote code:
+
+```cd <your_path> && git pull```
