@@ -35,7 +35,7 @@ int main()
 
         // OpenMP can handle for us for loop ranges!
         // TIP: you have to add something in the following line...
-        #pragma omp parallel for reduction(+:sum)
+        #pragma omp for reduction(+:sum)
         for (unsigned long long i=1; i<=common::num_steps; i++) {
             double x = (i - 0.5) * step; //computing the x value
             sum += 4.0 / (1.0 + x * x); //adding to the cumulus
